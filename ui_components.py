@@ -1,7 +1,6 @@
 import streamlit as st
 
 def render_sidebar():
-    """Renders the sidebar UI components and returns the settings."""
     st.sidebar.title("🤖 Chatbot Settings")
     selected_model = st.sidebar.selectbox(
         "Choose AI Model", ("Ollama"),
@@ -19,7 +18,6 @@ def render_sidebar():
     return selected_model, temperature, max_tokens, top_p, top_k, summarize_button
 
 def render_chat_interface():
-    """Renders the main chat interface and handles user input."""
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
